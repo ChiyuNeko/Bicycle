@@ -36735,6 +36735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handsParameters: {fileID: 782490630}
   ObjectsPrefabs:
   - {fileID: 136824, guid: 393b236c42954a640b513d46de90ac38, type: 3}
   - {fileID: 123896, guid: c63ea781a273235439e583799176c846, type: 3}
@@ -36745,6 +36746,7 @@ MonoBehaviour:
   Distence: {x: 10, y: 10}
   RandomOffset: 5
   GrowUpSpeed: 1
+  LeftHand: 0
 --- !u!4 &2095137605
 Transform:
   m_ObjectHideFlags: 0
@@ -37391,6 +37393,6 @@ SceneRoots:
   - {fileID: 646888574}
   - {fileID: 175559779}
   - {fileID: 1233582147}
-  - {fileID: 2095137605}
   - {fileID: 683175204}
   - {fileID: 782490631}
+  - {fileID: 2095137605}

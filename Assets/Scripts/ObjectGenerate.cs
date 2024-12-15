@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class ObjectGenerate : MonoBehaviour
 {
+    public HandsParameters handsParameters;
     public List<GameObject> ObjectsPrefabs = new List<GameObject>();
     public List<GameObject> AllObjects = new List<GameObject>();
     public Vector2 GenerateZone;
     public Vector2 Distence;
     public float RandomOffset;
     public float GrowUpSpeed;
+    public bool LeftHand;
     int index = 0;
 
     void Start()
@@ -19,6 +21,7 @@ public class ObjectGenerate : MonoBehaviour
 
     void Update()
     {
+        GetVelocity();
         GrowUp();
     }
 
@@ -53,5 +56,17 @@ public class ObjectGenerate : MonoBehaviour
             index = Random.Range(0, AllObjects.Count);
         }
 
+    }
+
+    public void GetVelocity()
+    {
+        if (LeftHand)
+        {
+            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.LeftControllerVelocity.y), 1/GrowUpSpeed);
+        }
+        else
+        {
+            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.RightControllerVelocity.y), 1/GrowUpSpeed);
+        }
     }
 }
