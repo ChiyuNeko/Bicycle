@@ -10,7 +10,9 @@ public class ObjectGenerate : MonoBehaviour
     public Vector2 GenerateZone;
     public Vector2 Distence;
     public float RandomOffset;
-    public float GrowUpSpeed;
+    public float GrowUpSpeedOffset = 1;
+    [SerializeField]
+    float GrowUpSpeed;
     public bool LeftHand;
     int index = 0;
 
@@ -22,7 +24,7 @@ public class ObjectGenerate : MonoBehaviour
     void Update()
     {
         GetVelocity();
-        GrowUp();
+        //GrowUp();
     }
 
     public void GenerateObjects()
@@ -35,7 +37,7 @@ public class ObjectGenerate : MonoBehaviour
             {
                 RamdomPoint = new Vector3( Random.Range(-RandomOffset, RandomOffset), 0, Random.Range(-RandomOffset, RandomOffset));
                 GameObject gameObject = Instantiate(ObjectsPrefabs[Random.Range(0, ObjectsPrefabs.Count)], GeneratePoint + RamdomPoint, Quaternion.identity);
-                gameObject.transform.localScale = Vector3.zero;
+                gameObject.transform.localScale = Vector3.one * 0.01f;
                 AllObjects.Add(gameObject);
                 GeneratePoint.x += Distence.x;
             }
@@ -43,30 +45,32 @@ public class ObjectGenerate : MonoBehaviour
             GeneratePoint.x = gameObject.transform.position.x;
         }
     }
-    public void GrowUp()
+    public void GrowUp(GameObject target)
     {
         
 
-        if(AllObjects[index].transform.localScale.x <= 1)
+        if(target.transform.localScale.x <= 1)
         {
-            AllObjects[index].transform.localScale += Vector3.one * GrowUpSpeed / 100f;
+            target.transform.localScale += Vector3.one * GrowUpSpeedOffset * GrowUpSpeed / 10f;
         }
-        else
-        {
-            index = Random.Range(0, AllObjects.Count);
-        }
+        // else
+        // {
+        //     index = Random.Range(0, AllObjects.Count);
+        // }
 
     }
 
-    public void GetVelocity()
+    public float GetVelocity()
     {
         if (LeftHand)
         {
             GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.LeftControllerVelocity.y), 1/GrowUpSpeed);
+            return handsParameters.RightControllerVelocity.y;
         }
         else
         {
             GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.RightControllerVelocity.y), 1/GrowUpSpeed);
+            return handsParameters.RightControllerVelocity.y;
         }
     }
 }
