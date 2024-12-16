@@ -33,12 +33,15 @@ public class PlayerSensor : MonoBehaviour
         {
             if(!InSight.Contains(other.gameObject))
                 InSight.Add(other.gameObject);
-            if(Distance[Distance.Count - 1] == TargeDistance)
+            if(Distance.Count != 0)               
             {
-                Target = other.gameObject;
+                if(Distance[Distance.Count - 1] == TargeDistance)
+                {
+                    Target = other.gameObject;
+                }
                 objectGenerate.GrowUp(Target);
             }
-            if(other.transform.localScale == Vector3.one)
+            if(other.transform.localScale.x >= 1)
             {
                 Target.tag = "Untagged";
                 InSight.Remove(Target);
