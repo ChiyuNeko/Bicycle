@@ -24,6 +24,11 @@ public class PlayerSensor : MonoBehaviour
         {
             Vector3.Distance(gameObject.transform.position, i.transform.position);
         }
+        if(Target.transform.localScale.x >= 1)
+        {
+            Target.tag = "Untagged";
+            InSight.Remove(Target);
+        }
     }
     
     private void OnTriggerStay(Collider other)
@@ -41,13 +46,9 @@ public class PlayerSensor : MonoBehaviour
                 }
                 objectGenerate.GrowUp(Target);
             }
-            if(other.transform.localScale.x >= 1)
-            {
-                Target.tag = "Untagged";
-                InSight.Remove(Target);
-            }
             
         }    
+        
     }
     private void OnTriggerExit(Collider other)
     {
