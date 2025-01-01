@@ -6,9 +6,11 @@ public class ObjectGenerate : MonoBehaviour
 {
     public HandsParameters handsParameters;
     public List<GameObject> ObjectsPrefabs = new List<GameObject>();
+    public List<GameObject> Animals = new List<GameObject>();
     public List<GameObject> AllObjects = new List<GameObject>();
     public Vector2 GenerateZone;
     public Vector2 Distence;
+    public float Scale;
     public float RandomOffset;
     public float GrowUpSpeedOffset = 1;
     [SerializeField]
@@ -37,7 +39,7 @@ public class ObjectGenerate : MonoBehaviour
             {
                 RamdomPoint = new Vector3( Random.Range(-RandomOffset, RandomOffset), 0, Random.Range(-RandomOffset, RandomOffset));
                 GameObject gameObject = Instantiate(ObjectsPrefabs[Random.Range(0, ObjectsPrefabs.Count)], GeneratePoint + RamdomPoint, Quaternion.identity);
-                gameObject.transform.localScale = Vector3.one * 0.01f;
+                gameObject.transform.localScale = Vector3.one * Scale;
                 AllObjects.Add(gameObject);
                 GeneratePoint.x += Distence.x;
             }
@@ -48,15 +50,17 @@ public class ObjectGenerate : MonoBehaviour
     public void GrowUp(GameObject target)
     {
         
-
-        if(target.transform.localScale.x <= 1)
+        if(target)
         {
-            target.transform.localScale += Vector3.one * GrowUpSpeedOffset * GrowUpSpeed / 10f;
+            if(target.transform.localScale.x <= 1)
+            {
+                target.transform.localScale += Vector3.one * GrowUpSpeedOffset * GrowUpSpeed / 10f;
+            }
+            // else
+            // {
+            //     index = Random.Range(0, AllObjects.Count);
+            // }
         }
-        // else
-        // {
-        //     index = Random.Range(0, AllObjects.Count);
-        // }
 
     }
 

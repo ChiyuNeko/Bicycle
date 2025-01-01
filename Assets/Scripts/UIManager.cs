@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
     public ObjectGenerate objectGenerate;
     public Text score;
+    public Text score_finish;
     public Text speed;
     public Text time;
+    public UnityEvent On_Finish;
     float velocity;
     float distance;
     float StartTime;
+    bool triggered = false;
     void Start()
     {
         StartTime = 0;
+        Initialized();
     }
 
     // Update is called once per frame
@@ -24,12 +30,24 @@ public class UIManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.A))
         {
             StartTime = Time.time;
+            Initialized();
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            TryAgain();
         }
         velocity = Mathf.Abs(objectGenerate.GetVelocity());
         distance += velocity / 100;
-        speed.text = "速度：" + velocity.ToString("F2");
-        score.text = "騎行距離：" + distance.ToString("F2");
+        speed.text = "加速度：" + velocity.ToString("F2") + "G";
+        score.text = "騎行分數：" + distance.ToString("F2");
+        score_finish.text = score.text;
         CountDown();
+        if((10 - Time.time + StartTime) <= 0 && !triggered)
+        {
+            On_Finish?.Invoke();
+            triggered = true;
+        }
+
     }
 
     public int CountDown()
@@ -46,5 +64,17 @@ public class UIManager : MonoBehaviour
         if(c == 60)
             time.text = $"{b} : 00";
         return b;
+    }
+    public void Initialized()
+    {
+        StartTime = Time.time;
+        distance = 0;
+
+    }
+    public void TryAgain()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        SceneManager.LoadScene(currentSceneName);
     }
 }
