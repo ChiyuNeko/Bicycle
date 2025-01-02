@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     public Text speed;
     public Text time;
     public UnityEvent On_Finish;
-    float velocity;
+    public float velocity {get; set;}
     float distance;
     float StartTime;
     bool triggered = false;
@@ -34,16 +34,17 @@ public class UIManager : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
-            TryAgain();
+            On_Finish?.Invoke();
+            score_finish.text = score.text;
         }
         velocity = Mathf.Abs(objectGenerate.GetVelocity());
         distance += velocity / 100;
         speed.text = "加速度：" + velocity.ToString("F2") + "G";
         score.text = "騎行分數：" + distance.ToString("F2");
-        score_finish.text = score.text;
         CountDown();
-        if((10 - Time.time + StartTime) <= 0 && !triggered)
+        if((1200 - Time.time + StartTime) <= 0 && !triggered)
         {
+            score_finish.text = score.text;
             On_Finish?.Invoke();
             triggered = true;
         }

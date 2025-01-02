@@ -42,6 +42,11 @@ public class PlayerSensor : MonoBehaviour
         AnimalGrowUp();
     }
     
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "GeneratedObject")
+            SuccessAudio.Play();
+    }
     private void OnTriggerStay(Collider other)
     {
         float TargeDistance = Vector3.Distance(gameObject.transform.position, other.transform.position);
@@ -54,7 +59,6 @@ public class PlayerSensor : MonoBehaviour
                 if(Distance[Distance.Count - 1] == TargeDistance)
                 {
                     Target = other.gameObject;
-                    SuccessAudio.Play();
                 }
                 objectGenerate.GrowUp(Target);
             }
