@@ -6,15 +6,22 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UIM;
 
 public class GameController : SaveSystem
 {
+    public UIM.UIManager uim = new UIM.UIManager(); 
+    public HandsParameters handsParameters;
+    public GameObject InformationUI;
+    public Collider PlayerSensorCollider;
     public static float startTime;
     public static float playTime = 60;
     public static int amount = 0;
     public static SaveData data = new SaveData();
     public GameData perGame = new GameData();
     [SerializeField] TMP_Text scoreUI;
+    [SerializeField] TMP_InputField UID_InputField;
+    [SerializeField] TMP_InputField UID_Creat_InputField;
     [SerializeField] GameObject keyBoard;
     [SerializeField] Collider con1;
     [SerializeField] Collider con2;
@@ -109,8 +116,9 @@ public class GameController : SaveSystem
     // Start is called before the first frame update
     void Start()
     {
+        
         music.GetComponent<AudioSource>().Play();
-        Left = LCon.transform.position;
+       // Left = LCon.transform.position;
     }
     // Update is called once per frame
     void Update()
@@ -136,6 +144,7 @@ public class GameController : SaveSystem
         // upCheckImage.fillAmount = upCheck;
         // downCheckImage.fillAmount = downCheck;
         // Debug.Log(GameController.amount);
+        
     }
     void SetUI()
     {
@@ -274,60 +283,21 @@ public class GameController : SaveSystem
         con5.enabled = true;
         keyBoard.SetActive(false);
     }
-    public void But0()
+    public void NumPadEnter(string num)
     {
         music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "0";
+        CheckID.playerID = CheckID.playerID + num;
+        UID_InputField.text = CheckID.playerID;
+        UID_Creat_InputField.text = CheckID.playerID;
     }
-    public void But1()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "1";
-    }
-    public void But2()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "2";
-    }
-    public void But3()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "3";
-    }
-    public void But4()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "4";
-    }
-    public void But5()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "5";
-    }
-    public void But6()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "6";
-    }
-    public void But7()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "7";
-    }
-    public void But8()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "8";
-    }
-    public void But9()
-    {
-        music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID + "9";
-    }
+    
     public void ButBack()
     {
         music.GetComponent<AudioSource>().Play();
-        CheckID.playerID = CheckID.playerID.Substring(0, CheckID.playerID.Length -1);
+        if(CheckID.playerID.Length > 0)
+            CheckID.playerID = CheckID.playerID.Substring(0, CheckID.playerID.Length -1);
+        UID_InputField.text = CheckID.playerID;
+        UID_Creat_InputField.text = CheckID.playerID;
     }
     public void LoginCon()
     {
@@ -335,8 +305,12 @@ public class GameController : SaveSystem
         if (CheckID.checkID())
         {
             Login.SetActive(false);
-            Adjust.SetActive(true);
-            Adjusting = true;
+            uim.Initialized();
+            PlayerSensorCollider.enabled = true;
+            InformationUI.SetActive(true);
+            handsParameters.enabled = true;
+            //Adjust.SetActive(true);
+            //Adjusting = true;
         }
         else
         {
@@ -360,9 +334,14 @@ public class GameController : SaveSystem
         {
             string fileName = string.Format("{0}_GameData", CheckID.playerID);
             Save(data, fileName);
-            Create.SetActive(false);
-            Adjust.SetActive(true);
-            Adjusting = true;
+            //Create.SetActive(false);
+            Login.SetActive(false);
+            uim.Initialized();
+            PlayerSensorCollider.enabled = true;
+            InformationUI.SetActive(true);
+            handsParameters.enabled = true;
+            //Adjust.SetActive(true);
+            //Adjusting = true;
         }
     }
     public void AdjustCon()

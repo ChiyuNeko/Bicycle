@@ -42,6 +42,13 @@ public class ObjectGenerate : MonoBehaviour
                 gameObject.transform.localScale = Vector3.one * Scale;
                 AllObjects.Add(gameObject);
                 GeneratePoint.x += Distence.x;
+
+                RaycastHit hit;
+                if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
+                {
+                    gameObject.transform.position = hit.point;
+                }
+
             }
             GeneratePoint.z += Distence.y;
             GeneratePoint.x = gameObject.transform.position.x;
