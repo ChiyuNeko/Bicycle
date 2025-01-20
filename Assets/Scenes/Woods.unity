@@ -40563,7 +40563,7 @@ MonoBehaviour:
   AllObjects: []
   GenerateZone: {x: 18, y: 9}
   Distence: {x: 10, y: 10}
-  Scale: 0.01
+  Scale: 1
   RandomOffset: 5
   GrowUpSpeedOffset: 0.05
   GrowUpSpeed: 1
