@@ -1186,6 +1186,48 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1313184294}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5180279930533395779, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5956130718954039297, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 3876804671819014611, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6527313333463659060, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6906042446320498096, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5676963381706779911, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8865307799012631646, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8310240850484608568, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6304862802621516215, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8437003709218336490, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8785153381001534626, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 941331984465656451, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8827524989756136000, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6004586985873604211, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7109981894118237631, guid: 9ea3c3bd7f7fe1043a0bb52ecda39ce6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1141679173}
@@ -4297,7 +4339,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8f5aeb9c6de7614db2631011b869bc3, type: 2}
   m_sharedMaterial: {fileID: -5839354330806206608, guid: b8f5aeb9c6de7614db2631011b869bc3, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -5839354330806206608, guid: b8f5aeb9c6de7614db2631011b869bc3, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -10583,7 +10626,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8f5aeb9c6de7614db2631011b869bc3, type: 2}
   m_sharedMaterial: {fileID: -5839354330806206608, guid: b8f5aeb9c6de7614db2631011b869bc3, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -5839354330806206608, guid: b8f5aeb9c6de7614db2631011b869bc3, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

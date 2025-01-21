@@ -38,7 +38,7 @@ public class ObjectGenerate : MonoBehaviour
             for(int j = 0; j < GenerateZone.x; j++)
             {
                 RamdomPoint = new Vector3( Random.Range(-RandomOffset, RandomOffset), 0, Random.Range(-RandomOffset, RandomOffset));
-                GameObject gameObject = Instantiate(ObjectsPrefabs[Random.Range(0, ObjectsPrefabs.Count)], GeneratePoint + RamdomPoint, Quaternion.identity);
+                GameObject gameObject = Instantiate(ObjectsPrefabs[Random.Range(0, ObjectsPrefabs.Count)], GeneratePoint + RamdomPoint, Quaternion.identity, this.transform);
                 gameObject.transform.localScale = Vector3.one * Scale;
                 AllObjects.Add(gameObject);
                 GeneratePoint.x += Distence.x;
