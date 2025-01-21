@@ -9,8 +9,12 @@ public class HandsParameters : MonoBehaviour
 {
     InputDevice LeftControllerDevice;
     InputDevice RightControllerDevice;
-    public Vector3 LeftControllerVelocity;
-    public Vector3 RightControllerVelocity;
+    public VelocetyData velocetyData_L;
+    public VelocetyData velocetyData_R;
+    public float LeftControllerVelocity;
+    public float RightControllerVelocity;
+    public Vector3 LeftControllerAcceleration;
+    public Vector3 RightControllerAcceleration;
     InputData inputData;
 
     void Start()
@@ -22,8 +26,10 @@ public class HandsParameters : MonoBehaviour
 
     void Update()
     {
-        inputData._leftController.TryGetFeatureValue(CommonUsages.deviceVelocity, out LeftControllerVelocity);
-        inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out RightControllerVelocity);
+        LeftControllerVelocity = velocetyData_L.Velocety;
+        RightControllerVelocity = velocetyData_R.Velocety;
+        inputData._leftController.TryGetFeatureValue(CommonUsages.deviceVelocity, out LeftControllerAcceleration);
+        inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out RightControllerAcceleration);
     }
 
 

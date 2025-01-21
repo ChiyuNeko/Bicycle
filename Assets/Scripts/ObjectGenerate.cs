@@ -75,13 +75,13 @@ public class ObjectGenerate : MonoBehaviour
     {
         if (LeftHand)
         {
-            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.LeftControllerVelocity.y), 1/GrowUpSpeed);
-            return handsParameters.RightControllerVelocity.y;
+            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.LeftControllerVelocity), 1/GrowUpSpeed);
+            return handsParameters.RightControllerVelocity;
         }
         else
         {
-            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.RightControllerVelocity.y), 1/GrowUpSpeed);
-            return handsParameters.RightControllerVelocity.y;
+            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.RightControllerVelocity), 1/GrowUpSpeed);
+            return handsParameters.RightControllerVelocity;
         }
     }
 }

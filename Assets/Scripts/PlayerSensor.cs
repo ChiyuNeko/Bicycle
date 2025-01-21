@@ -45,7 +45,10 @@ public class PlayerSensor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "GeneratedObject")
-            SuccessAudio.Play();
+        {
+            //SuccessAudio.Play();
+
+        }
     }
     private void OnTriggerStay(Collider other)
     {

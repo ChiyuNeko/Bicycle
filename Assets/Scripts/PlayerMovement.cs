@@ -40,11 +40,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (LeftHand)
         {
-            velocity = Mathf.Lerp(velocity, Mathf.Abs(handsParameters.LeftControllerVelocity.y), 1/smooth);
+            //velocity = Mathf.Lerp(velocity, Mathf.Abs(handsParameters.LeftControllerVelocity.y), 1/smooth);
         }
         else
         {
-            velocity = Mathf.Lerp(velocity, Mathf.Abs(handsParameters.RightControllerVelocity.y), 1/smooth);
+            //velocity = Mathf.Lerp(velocity, Mathf.Abs(handsParameters.RightControllerVelocity.y), 1/smooth);
         }
         Player.transform.Translate(0, 0, velocity*speed, Space.Self);
     }
