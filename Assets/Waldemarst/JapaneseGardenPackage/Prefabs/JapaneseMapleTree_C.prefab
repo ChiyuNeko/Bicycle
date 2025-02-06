@@ -116,9 +116,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4696918893124759687}
   - component: {fileID: 2842956978540125714}
+  - component: {fileID: 8229339479329937953}
   m_Layer: 0
   m_Name: JapaneseMapleTree_C
-  m_TagString: Untagged
+  m_TagString: GeneratedObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,6 +169,27 @@ LODGroup:
     renderers:
     - renderer: {fileID: 6069601943732506569}
   m_Enabled: 1
+--- !u!65 &8229339479329937953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3244553707286072786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4455812864711409743
 GameObject:
   m_ObjectHideFlags: 0

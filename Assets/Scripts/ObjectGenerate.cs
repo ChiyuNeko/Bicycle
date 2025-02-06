@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UIM;
+using Unity.VisualScripting;
 
 public class ObjectGenerate : MonoBehaviour
 {
+    public PlayerSensor playerSensor;
+    public UIManager uim = new UIManager();
+    public VelocetyData velocetyData_L;
+    public VelocetyData velocetyData_R;
     public HandsParameters handsParameters;
     public List<GameObject> ObjectsPrefabs = new List<GameObject>();
     public List<GameObject> Animals = new List<GameObject>();
     public List<GameObject> AllObjects = new List<GameObject>();
+    public float TargetScore;
+    public float ShrinkSpeed;
+    public GameObject NextStep;
     public Vector2 GenerateZone;
     public Vector2 Distence;
     public float Scale;
@@ -21,11 +30,17 @@ public class ObjectGenerate : MonoBehaviour
     void Start()
     {
         GenerateObjects();
+        playerSensor.objectGenerate = this;
     }
 
     void Update()
     {
         GetVelocity();
+
+        if(uim.distance >= TargetScore)
+        {
+            Shrink();
+        }
         //GrowUp();
     }
 
@@ -73,15 +88,36 @@ public class ObjectGenerate : MonoBehaviour
 
     public float GetVelocity()
     {
+        GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs((velocetyData_L.Velocety + velocetyData_R.Velocety)/2), 0.1f);
         if (LeftHand)
         {
-            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.LeftControllerVelocity), 1/GrowUpSpeed);
-            return handsParameters.RightControllerVelocity;
+            return velocetyData_L.Velocety;
         }
         else
         {
-            GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs(handsParameters.RightControllerVelocity), 1/GrowUpSpeed);
-            return handsParameters.RightControllerVelocity;
+            return velocetyData_R.Velocety;
         }
+    }
+
+    public void Shrink()
+    {
+        int UnShrinked = 0;
+        foreach(GameObject i in AllObjects)
+        {
+            i.transform.localScale -= Vector3.one * ShrinkSpeed * Time.deltaTime;
+            if(i.transform.localScale.x >= 0.01)
+            {
+                UnShrinked++;
+                print(UnShrinked);
+            }
+
+        }
+        if(UnShrinked == 0)
+        {
+            NextStep?.SetActive(true);
+            this.gameObject.SetActive(false);
+
+        }
+       
     }
 }

@@ -19,7 +19,7 @@ namespace UIM
         public Text time;
         public UnityEvent On_Finish;
         public float velocity {get; set;}
-        float distance;
+        public float distance;
         float StartTime;
         bool triggered = false;
         void Start()

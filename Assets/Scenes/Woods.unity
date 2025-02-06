@@ -5130,9 +5130,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 319313973}
+  - component: {fileID: 319313974}
   m_Layer: 0
   m_Name: Winter Pine Tree 2
-  m_TagString: Untagged
+  m_TagString: GeneratedObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5153,6 +5154,27 @@ Transform:
   - {fileID: 1337504368}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &319313974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319313972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &323609775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4407980503386300, guid: 3baa12ad422f7614299673cc8202de8b, type: 3}
@@ -8225,6 +8247,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  distance: 0
 --- !u!4 &501026754
 Transform:
   m_ObjectHideFlags: 0
@@ -15262,9 +15285,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 818284295}
+  - component: {fileID: 818284296}
   m_Layer: 0
   m_Name: Winter Pine Tree 3
-  m_TagString: Untagged
+  m_TagString: GeneratedObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15285,6 +15309,27 @@ Transform:
   - {fileID: 1887307956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &818284296
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818284294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &819491558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 442488, guid: ec78ebca7517fb745a45a931cb06d2bd, type: 3}
@@ -15633,6 +15678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSensor: {fileID: 2086506305}
+  uim: {fileID: 501026753}
+  velocetyData_L: {fileID: 2087327097}
+  velocetyData_R: {fileID: 568744570}
   handsParameters: {fileID: 782490630}
   ObjectsPrefabs:
   - {fileID: 117866680507355168, guid: 1d346702b2107531e939003fb256261b, type: 3}
@@ -15650,9 +15699,12 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
+  TargetScore: 400
+  ShrinkSpeed: 0.5
+  NextStep: {fileID: 2095137603}
   GenerateZone: {x: 18, y: 9}
   Distence: {x: 10, y: 10}
-  Scale: 1
+  Scale: 0.01
   RandomOffset: 5
   GrowUpSpeedOffset: 0.01
   GrowUpSpeed: 1
@@ -19401,9 +19453,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1024181204}
+  - component: {fileID: 1024181205}
   m_Layer: 0
   m_Name: Winter Pine Tree 4
-  m_TagString: Untagged
+  m_TagString: GeneratedObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19424,6 +19477,27 @@ Transform:
   - {fileID: 323609775}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1024181205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024181203}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1026817547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 429508, guid: 9c74caa742791864f9c678287121e6c9, type: 3}
@@ -24279,6 +24353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSensor: {fileID: 2086506305}
+  uim: {fileID: 501026753}
+  velocetyData_L: {fileID: 2087327097}
+  velocetyData_R: {fileID: 568744570}
   handsParameters: {fileID: 782490630}
   ObjectsPrefabs:
   - {fileID: 6252442513108361000, guid: 6e92187b7f5500614b9ca0ab3b1812a0, type: 3}
@@ -24294,9 +24372,12 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
+  TargetScore: 40
+  ShrinkSpeed: 0.5
+  NextStep: {fileID: 1539498207}
   GenerateZone: {x: 18, y: 9}
   Distence: {x: 10, y: 10}
-  Scale: 1
+  Scale: 0.01
   RandomOffset: 5
   GrowUpSpeedOffset: 0.01
   GrowUpSpeed: 1
@@ -26553,9 +26634,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1330016938}
+  - component: {fileID: 1330016939}
   m_Layer: 0
   m_Name: Winter Pine Tree 1
-  m_TagString: Untagged
+  m_TagString: GeneratedObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26576,6 +26658,27 @@ Transform:
   - {fileID: 1333645411}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1330016939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330016937}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1330533150
 GameObject:
   m_ObjectHideFlags: 0
@@ -30015,7 +30118,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6418175450504204898, guid: ad0bf7c4316e03f4db0e464aebdfd9ed, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad0bf7c4316e03f4db0e464aebdfd9ed, type: 3}
@@ -30071,7 +30175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1539498208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30084,6 +30188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSensor: {fileID: 2086506305}
+  uim: {fileID: 501026753}
+  velocetyData_L: {fileID: 2087327097}
+  velocetyData_R: {fileID: 568744570}
   handsParameters: {fileID: 782490630}
   ObjectsPrefabs:
   - {fileID: 1330016937}
@@ -30099,9 +30207,12 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
+  TargetScore: 60
+  ShrinkSpeed: 0.5
+  NextStep: {fileID: 835242182}
   GenerateZone: {x: 18, y: 9}
   Distence: {x: 10, y: 10}
-  Scale: 1
+  Scale: 0.01
   RandomOffset: 5
   GrowUpSpeedOffset: 0.01
   GrowUpSpeed: 1
@@ -31865,6 +31976,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSensor: {fileID: 0}
+  uim: {fileID: 501026753}
+  velocetyData_L: {fileID: 2087327097}
+  velocetyData_R: {fileID: 568744570}
   handsParameters: {fileID: 782490630}
   ObjectsPrefabs:
   - {fileID: 136824, guid: 393b236c42954a640b513d46de90ac38, type: 3}
@@ -31881,6 +31996,9 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
+  TargetScore: Infinity
+  ShrinkSpeed: 0.5
+  NextStep: {fileID: 0}
   GenerateZone: {x: 18, y: 7}
   Distence: {x: 10, y: 10}
   Scale: 1
@@ -41167,7 +41285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2095137604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41180,6 +41298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSensor: {fileID: 2086506305}
+  uim: {fileID: 501026753}
+  velocetyData_L: {fileID: 2087327097}
+  velocetyData_R: {fileID: 568744570}
   handsParameters: {fileID: 782490630}
   ObjectsPrefabs:
   - {fileID: 136824, guid: 393b236c42954a640b513d46de90ac38, type: 3}
@@ -41195,6 +41317,9 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
+  TargetScore: 10
+  ShrinkSpeed: 0.5
+  NextStep: {fileID: 1222272788}
   GenerateZone: {x: 18, y: 9}
   Distence: {x: 10, y: 10}
   Scale: 0.01
@@ -41823,8 +41948,8 @@ SceneRoots:
   - {fileID: 1812932565}
   - {fileID: 501026754}
   - {fileID: 1649369043}
-  - {fileID: 2095137605}
   - {fileID: 835242184}
+  - {fileID: 2095137605}
   - {fileID: 1222272790}
   - {fileID: 1539498209}
   - {fileID: 782490631}
