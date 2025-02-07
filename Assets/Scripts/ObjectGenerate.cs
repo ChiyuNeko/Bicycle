@@ -30,7 +30,8 @@ public class ObjectGenerate : MonoBehaviour
     void Start()
     {
         GenerateObjects();
-        playerSensor.objectGenerate = this;
+        if(playerSensor)
+            playerSensor.objectGenerate = this;
     }
 
     void Update()

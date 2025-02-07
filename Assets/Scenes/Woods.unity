@@ -5169,11 +5169,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &323609775 stripped
 Transform:
@@ -15324,11 +15324,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &819491558 stripped
 Transform:
@@ -19492,11 +19492,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1026817547 stripped
 Transform:
@@ -24372,7 +24372,7 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
-  TargetScore: 40
+  TargetScore: 60
   ShrinkSpeed: 0.5
   NextStep: {fileID: 1539498207}
   GenerateZone: {x: 18, y: 9}
@@ -26673,11 +26673,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1330533150
 GameObject:
@@ -30207,7 +30207,7 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
-  TargetScore: 60
+  TargetScore: 80
   ShrinkSpeed: 0.5
   NextStep: {fileID: 835242182}
   GenerateZone: {x: 18, y: 9}
@@ -31068,7 +31068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1600565700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41317,7 +41317,7 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
-  TargetScore: 10
+  TargetScore: 50
   ShrinkSpeed: 0.5
   NextStep: {fileID: 1222272788}
   GenerateZone: {x: 18, y: 9}
