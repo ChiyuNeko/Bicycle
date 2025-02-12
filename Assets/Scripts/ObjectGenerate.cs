@@ -62,7 +62,8 @@ public class ObjectGenerate : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
                 {
-                    gameObject.transform.position = hit.point;
+                    if(hit.transform.tag == "Ground")
+                        gameObject.transform.position = hit.point;
                 }
 
             }
@@ -105,11 +106,14 @@ public class ObjectGenerate : MonoBehaviour
         int UnShrinked = 0;
         foreach(GameObject i in AllObjects)
         {
-            i.transform.localScale -= Vector3.one * ShrinkSpeed * Time.deltaTime;
-            if(i.transform.localScale.x >= 0.01)
+            if(i.transform.localScale.x >= 0.005)
             {
+                i.transform.localScale -= Vector3.one * ShrinkSpeed * Time.deltaTime;
                 UnShrinked++;
-                print(UnShrinked);
+            }
+            else
+            {
+                playerSensor.InSight.Remove(i);
             }
 
         }

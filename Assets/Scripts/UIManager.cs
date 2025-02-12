@@ -12,7 +12,8 @@ namespace UIM
     public class UIManager : MonoBehaviour
     {
         public ObjectGenerate objectGenerate;
-        public VelocetyData velocetyData;
+        public VelocetyData velocetyData_L;
+        public VelocetyData velocetyData_R;
         public Text score;
         public Text score_finish;
         public Text speed;
@@ -41,7 +42,7 @@ namespace UIM
                 On_Finish?.Invoke();
                 score_finish.text = score.text;
             }
-            velocity = Mathf.Abs(velocetyData.Velocety);
+            velocity = Mathf.Abs(velocetyData_L.Velocety + velocetyData_R.Velocety) / 2;
             distance += velocity / 100;
             speed.text = "速度：" + velocity.ToString("F2") + "m/s";
             score.text = "騎行分數：" + distance.ToString("F2");
