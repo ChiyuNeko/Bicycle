@@ -3,22 +3,40 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class SaveSystem : MonoBehaviour
 {
-	//©ñ¤J­nÀx¦sªºSaveData
-	public virtual void Save(object save, string fileName)
-	{
-		// ³]©wÀÉ®×¦WºÙ
-		//string fileName = string.Format("{0}_GameData", ID);
-		// ±N¸ê®Æ§Ç¦C¤Æ¬° JSON ®æ¦¡
-		string savingString = JsonUtility.ToJson(save);
-		// ÀË¬d¸ê®Æ§¨¬O§_¦s¦b¡A¤£¦s¦b«h³Ð«Ø
-		if (System.IO.Directory.Exists(Application.dataPath + "/StreamingAssets/GameData/") == false)
-		{
-			System.IO.Directory.CreateDirectory(Application.dataPath + "/StreamingAssets/GameData/");
-		}
-		// ±N¸ê®Æ¼g¤J¨ì«ü©w¸ô®|ªº JSON ÀÉ®×¤¤
-		System.IO.File.WriteAllText(Application.dataPath + "/StreamingAssets/GameData/" + fileName, savingString);
-	}
+    //ï¿½ï¿½Jï¿½nï¿½xï¿½sï¿½ï¿½SaveData
+    public virtual void Save(object save, string fileName)
+    {
+        // ï¿½Nï¿½ï¿½Æ§Ç¦Cï¿½Æ¬ï¿½ JSON ï¿½æ¦¡
+        string savingString = JsonUtility.ToJson(save);
+
+        // ï¿½Ú¾Ú³]ï¿½Æ§Pï¿½_ï¿½xï¿½sï¿½ï¿½ï¿½|
+        string directoryPath;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+    // Android ï¿½]ï¿½Æ¡Gï¿½sï¿½ï¿½b Download/Butterfly ï¿½ï¿½Æ§ï¿½
+    directoryPath = System.IO.Path.Combine(Application.persistentDataPath.Replace("files", "Download"), "Butterfly");
+#else
+        // ï¿½qï¿½ï¿½ï¿½]ï¿½Æ¡Gï¿½sï¿½ï¿½b StreamingAssets/GameData ï¿½ï¿½Æ§ï¿½
+        directoryPath = Application.dataPath + "/StreamingAssets/GameData";
+#endif
+
+        // ï¿½Ë¬dï¿½ï¿½Æ§ï¿½ï¿½Oï¿½_ï¿½sï¿½bï¿½Aï¿½ï¿½ï¿½sï¿½bï¿½hï¿½Ð«ï¿½
+        if (!System.IO.Directory.Exists(directoryPath))
+        {
+            System.IO.Directory.CreateDirectory(directoryPath);
+        }
+
+        // ï¿½]ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½É®×¸ï¿½ï¿½|
+        string filePath = System.IO.Path.Combine(directoryPath, fileName);
+
+        // ï¿½Nï¿½ï¿½Æ¼gï¿½Jï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½|ï¿½ï¿½ JSON ï¿½É®×¤ï¿½
+        System.IO.File.WriteAllText(filePath, savingString);
+
+        // Debug ï¿½Tï¿½{
+        Debug.Log("ï¿½xï¿½sï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½|ï¿½G" + filePath);
+    }
 }
