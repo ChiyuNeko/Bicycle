@@ -18,7 +18,7 @@ public class SaveSystem : MonoBehaviour
 
 #if UNITY_ANDROID && !UNITY_EDITOR
     // Android �]�ơG�s��b Download/Butterfly ��Ƨ�
-    directoryPath = System.IO.Path.Combine(Application.persistentDataPath.Replace("files", "Download"), "Butterfly");
+    directoryPath = System.IO.Path.Combine(Application.persistentDataPath.Replace("files", "Download"), "Bicycle");
 #else
         // �q���]�ơG�s��b StreamingAssets/GameData ��Ƨ�
         directoryPath = Application.dataPath + "/StreamingAssets/GameData";

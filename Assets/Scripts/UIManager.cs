@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System;
+using Oculus.Interaction.Samples;
 
 namespace UIM
 {
@@ -14,6 +16,8 @@ namespace UIM
         public ObjectGenerate objectGenerate;
         public VelocetyData velocetyData_L;
         public VelocetyData velocetyData_R;
+        public float CountdownTime = 0;
+        public bool StartCount{get; set;}
         public Text score;
         public Text score_finish;
         public Text speed;
@@ -25,6 +29,7 @@ namespace UIM
         bool triggered = false;
         void Start()
         {
+            StartCount = false;
             StartTime = 0;
             Initialized();
         }
@@ -46,19 +51,23 @@ namespace UIM
             distance += velocity / 100;
             speed.text = "速度：" + velocity.ToString("F2") + "m/s";
             score.text = "騎行分數：" + distance.ToString("F2");
-            CountDown();
-            if((1200 - Time.time + StartTime) <= 0 && !triggered)
+            if(StartCount)
             {
-                score_finish.text = score.text;
-                On_Finish?.Invoke();
-                triggered = true;
+                CountDown();
+                if((CountdownTime - Time.time + StartTime) <= 0 && !triggered)
+                {
+                    score_finish.text = score.text;
+                    On_Finish?.Invoke();
+                    triggered = true;
+                }
             }
 
         }
 
         public int CountDown()
         {
-            float a = (1200 - Time.time + StartTime) /60;
+            Debug.Log(123);
+            float a = (CountdownTime - Time.time + StartTime) /60;
             int b;
             float c;
             b = (int)a;

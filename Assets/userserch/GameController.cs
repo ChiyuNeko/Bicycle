@@ -63,6 +63,8 @@ public class GameController : SaveSystem
     float downCheck = 0;
     string hitSide;
     Vector3 Left;
+    string fileName;
+    bool HaveData;
 
     //���b���l�W
 
@@ -71,7 +73,11 @@ public class GameController : SaveSystem
         //��J�n�x�s���ܼ�
         //�O�o�x�s�e�n��s�o�̪��ƾ�
         public float score;
-        public float moveDis;
+        //public float moveDis;
+        public string LeftControllerVelocity;
+        public string RightControllerVelocity;
+        public string LeftControllerAcceleration;
+        public string RightControllerAcceleration;
        
     }
     [System.Serializable]
@@ -116,13 +122,27 @@ public class GameController : SaveSystem
     // Start is called before the first frame update
     void Start()
     {
-        
+        HaveData = false;
         music.GetComponent<AudioSource>().Play();
        // Left = LCon.transform.position;
     }
     // Update is called once per frame
     void Update()
-    {
+    { 
+        if(HaveData)
+        {
+            data.score = float.Parse(uim.score.text);
+            data.LeftControllerVelocity += handsParameters.LeftControllerVelocity;
+            data.RightControllerVelocity += handsParameters.RightControllerVelocity;
+            data.LeftControllerAcceleration += handsParameters.LeftControllerAcceleration;
+            data.RightControllerAcceleration += handsParameters.RightControllerAcceleration;
+            Debug.Log(data.score);
+            Save(data, fileName);
+
+        }
+
+
+        
         // if (Adjusting)
         // {
         //     CheckAdjust();
@@ -226,13 +246,13 @@ public class GameController : SaveSystem
     //     }
     //     amount = 0;
     // }
-    void savePerGameData()
+    public void savePerGameData()
     {
         perGame.ID = CheckID.playerID;
         perGame.score = data.score;
-        perGame.moveDis = data.moveDis;
+       // perGame.moveDis = data.moveDis;
         GameData savedata = perGame;
-        string fileName = string.Format("{0}{1}_{2}{3}{4}_PosData", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+        fileName = string.Format("{5}_{0}{1}_{2}{3}{4}_GameData", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, CheckID.playerID);
         Save(perGame, fileName);
         perGame.position.Clear();
     }
@@ -302,20 +322,30 @@ public class GameController : SaveSystem
     public void LoginCon()
     {
         music.GetComponent<AudioSource>().Play();
-        if (CheckID.checkID())
-        {
-            Login.SetActive(false);
-            uim.Initialized();
-            PlayerSensorCollider.enabled = true;
-            InformationUI.SetActive(true);
-            handsParameters.enabled = true;
-            //Adjust.SetActive(true);
-            //Adjusting = true;
-        }
-        else
-        {
-            StartCoroutine(LoginError());
-        }
+        // if (CheckID.checkID())
+        // {
+        //     Login.SetActive(false);
+        //     uim.Initialized();
+        //     PlayerSensorCollider.enabled = true;
+        //     InformationUI.SetActive(true);
+        //     handsParameters.enabled = true;
+            
+        //     //Adjust.SetActive(true);
+        //     //Adjusting = true;
+        // }
+        // else
+        // {
+        //     StartCoroutine(LoginError());
+        // }
+        fileName = string.Format("{0}{1}_{2}{3}{4}_PosData", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+        Save(data, fileName);
+        //Create.SetActive(false);
+        Login.SetActive(false);
+        uim.Initialized();
+        PlayerSensorCollider.enabled = true;
+        InformationUI.SetActive(true);
+        handsParameters.enabled = true;
+        HaveData = true;
     }
     public void GoToCreateCon()
     {
@@ -332,7 +362,7 @@ public class GameController : SaveSystem
         }
         else
         {
-            string fileName = string.Format("{0}_GameData", CheckID.playerID);
+            fileName = string.Format("{0}{1}_{2}{3}{4}_PosData", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             Save(data, fileName);
             //Create.SetActive(false);
             Login.SetActive(false);
@@ -513,7 +543,7 @@ public class GameController : SaveSystem
     {
         music.GetComponent<AudioSource>().Play();
         data.score = 0;
-        data.moveDis = 0;
+        //data.moveDis = 0;
         scoreBreak = false;
         distanceBreak = false;
         Adjusting = true;

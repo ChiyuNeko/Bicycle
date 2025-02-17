@@ -9,7 +9,7 @@ public class CheckID : SaveSystem
     public static string playerID;
     public static float bestScore = 0;
     public static float bestDis = 0;
-    //½T»{¬O§_¦³«ØÀÉ¥H¤ÎÅª¨ú³Ì°ª¬ö¿ý
+    //ï¿½Tï¿½{ï¿½Oï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½É¥Hï¿½ï¿½Åªï¿½ï¿½ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½
     public static bool checkID()
     {
         string fileName = string.Format("{0}_GameData", playerID);
@@ -17,7 +17,7 @@ public class CheckID : SaveSystem
         {
             string readData = System.IO.File.ReadAllText(Application.dataPath + "/StreamingAssets/GameData/" + fileName);
             bestScore = JsonConvert.DeserializeObject<GameController.SaveData>(readData).score;
-            bestDis = JsonConvert.DeserializeObject<GameController.SaveData>(readData).moveDis;
+            //bestDis = JsonConvert.DeserializeObject<GameController.SaveData>(readData).moveDis;
             return true;
         }
         else
