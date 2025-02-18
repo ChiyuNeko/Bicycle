@@ -8755,9 +8755,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectGenerate: {fileID: 2095137604}
+  gameController: {fileID: 625725014}
   velocetyData_L: {fileID: 2087327097}
   velocetyData_R: {fileID: 568744570}
-  CountdownTime: 10
+  CountdownTime: 1200
   score: {fileID: 981822594}
   score_finish: {fileID: 1725964145}
   speed: {fileID: 1645713069}
@@ -8829,6 +8830,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
         m_MethodName: savePerGameData
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625725014}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: savePerGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625725014}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: set_HaveData
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10687,6 +10712,7 @@ MonoBehaviour:
     score: 
     LeftControllerAcceleration: []
     RightControllerAcceleration: []
+    GameTime: []
   scoreUI: {fileID: 0}
   UID_InputField: {fileID: 2108255999}
   UID_Creat_InputField: {fileID: 2029280495}
@@ -10715,7 +10741,6 @@ MonoBehaviour:
   RCon: {fileID: 672787263}
   upCheckImage: {fileID: 0}
   downCheckImage: {fileID: 0}
-  HaveData: 0
 --- !u!114 &625725015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25132,7 +25157,7 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
-  TargetScore: 60
+  TargetScore: 200
   ShrinkSpeed: 0.5
   NextStep: {fileID: 1539498207}
   GenerateZone: {x: 18, y: 9}
@@ -31037,7 +31062,7 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
-  TargetScore: 80
+  TargetScore: 300
   ShrinkSpeed: 0.5
   NextStep: {fileID: 835242182}
   GenerateZone: {x: 18, y: 9}
@@ -39111,6 +39136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Login
       objectReference: {fileID: 0}
+    - target: {fileID: 8520902350050246917, guid: e281346999742f5428ed7baeebb46c98, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8520902350247480099, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -39173,7 +39202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -39189,7 +39218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
@@ -39226,7 +39255,7 @@ PrefabInstance:
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 625725014}
+      objectReference: {fileID: 920021664}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
@@ -39293,7 +39322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: LoginCon
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
@@ -39329,7 +39358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: GameController, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
@@ -39365,7 +39394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8520902351115883110, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_BoolArgument
@@ -42155,7 +42184,7 @@ MonoBehaviour:
   - {fileID: 40959782}
   - {fileID: 2030710505}
   AllObjects: []
-  TargetScore: 50
+  TargetScore: 100
   ShrinkSpeed: 0.5
   NextStep: {fileID: 1222272788}
   GenerateZone: {x: 18, y: 9}

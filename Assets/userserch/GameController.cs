@@ -65,7 +65,9 @@ public class GameController : SaveSystem
     string hitSide;
     Vector3 Left;
     string fileName;
-    public bool HaveData;
+    public bool HaveData{get; set;}
+    float Timing = 0;
+    float DeltaTime = 0.1f;
 
     //���b���l�W
 
@@ -94,6 +96,7 @@ public class GameController : SaveSystem
         // public string RightControllerVelocity;
         public List<string> LeftControllerAcceleration = new List<string>();
         public List<string> RightControllerAcceleration = new List<string>();
+        public List<string> GameTime = new List<string>();
     }
     [System.Serializable]
     public class Q3Pos
@@ -139,7 +142,21 @@ public class GameController : SaveSystem
 
         
 
+        if(HaveData)
+        {
+            if(Time.time  - Timing > DeltaTime)
+            {
+                perGame.ID = CheckID.playerID;
+                perGame.score = uim.score.text;
+                perGame.position.Add("HMD:" + HMD.transform.position +"LCon:"+ LCon.transform.position+ "RCon:"+  RCon.transform.position);
+                perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration.ToString());
+                perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration.ToString());
+                perGame.GameTime.Add(Time.time.ToString());
+                Save(perGame, fileName);
+                Timing = Time.time;
+            }
 
+        }
         
         // if (Adjusting)
         // {
@@ -164,20 +181,7 @@ public class GameController : SaveSystem
         // Debug.Log(GameController.amount);
         
     }
-    void FixedUpdate()
-    {
-        if(HaveData)
-        {
-            perGame.score = uim.score.text;
-            perGame.position.Add("HMD:" + HMD.transform.position +"LCon:"+ LCon.transform.position+ "RCon:"+  RCon.transform.position);
-            perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration.ToString());
-            perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration.ToString());
-            Save(perGame, fileName);
 
-            
-            
-        }
-    }
     void SetUI()
     {
         scoreUI.SetText(data.score.ToString());

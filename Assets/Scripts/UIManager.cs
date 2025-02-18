@@ -14,6 +14,7 @@ namespace UIM
     public class UIManager : MonoBehaviour
     {
         public ObjectGenerate objectGenerate;
+        public GameController gameController;
         public VelocetyData velocetyData_L;
         public VelocetyData velocetyData_R;
         public float CountdownTime = 0;

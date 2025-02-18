@@ -41,6 +41,7 @@ public class ObjectGenerate : MonoBehaviour
         if(uim.distance >= TargetScore)
         {
             Shrink();
+            
         }
         //GrowUp();
     }
@@ -121,6 +122,7 @@ public class ObjectGenerate : MonoBehaviour
         {
             NextStep?.SetActive(true);
             this.gameObject.SetActive(false);
+            TargetScore += 400;
 
         }
        
