@@ -24,6 +24,7 @@ public class GameController : SaveSystem
     [SerializeField] TMP_InputField UID_InputField;
     [SerializeField] TMP_InputField UID_Creat_InputField;
     [SerializeField] GameObject keyBoard;
+    [SerializeField] GameObject TipUI;
     [SerializeField] Collider con1;
     [SerializeField] Collider con2;
     [SerializeField] Collider con3;
@@ -68,6 +69,7 @@ public class GameController : SaveSystem
     public bool HaveData{get; set;}
     float Timing = 0;
     float DeltaTime = 0.1f;
+    bool Ready = false;
 
     //���b���l�W
 
@@ -75,12 +77,9 @@ public class GameController : SaveSystem
     {
         //��J�n�x�s���ܼ�
         //�O�o�x�s�e�n��s�o�̪��ƾ�
-        public string score;
+         public string ID;
+        public float BestScore;
         //public float moveDis;
-        public string LeftControllerVelocity;
-        public string RightControllerVelocity;
-        public string LeftControllerAcceleration;
-        public string RightControllerAcceleration;
        
     }
     [System.Serializable]
@@ -90,7 +89,7 @@ public class GameController : SaveSystem
         // public float score;
         // public float moveDis;
         public List<string> position = new List<string>();
-        public string score;
+        public float score;
         //public float moveDis;
         // public string LeftControllerVelocity;
         // public string RightControllerVelocity;
@@ -134,12 +133,18 @@ public class GameController : SaveSystem
     {
         HaveData = false;
         music.GetComponent<AudioSource>().Play();
+        UID_InputField.text = CheckID.playerID;
        // Left = LCon.transform.position;
     }
     // Update is called once per frame
     void Update()
     { 
 
+        if(OVRInput.Get(OVRInput.Button.One) && OVRInput.Get(OVRInput.Button.Three) && Ready)
+        {
+            GameStart();
+
+        }
         
 
         if(HaveData)
@@ -147,7 +152,7 @@ public class GameController : SaveSystem
             if(Time.time  - Timing > DeltaTime)
             {
                 perGame.ID = CheckID.playerID;
-                perGame.score = uim.score.text;
+                perGame.score = float.Parse(uim.distance.ToString("F2"));
                 perGame.position.Add("HMD:" + HMD.transform.position +"LCon:"+ LCon.transform.position+ "RCon:"+  RCon.transform.position);
                 perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration.ToString());
                 perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration.ToString());
@@ -184,7 +189,7 @@ public class GameController : SaveSystem
 
     void SetUI()
     {
-        scoreUI.SetText(data.score.ToString());
+        scoreUI.SetText(data.BestScore.ToString());
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -264,12 +269,24 @@ public class GameController : SaveSystem
     // }
     public void savePerGameData()
     {
-        perGame.ID = CheckID.playerID;
-        perGame.score = data.score;
+        print(CheckID.checkID());
+        data.ID = CheckID.playerID;
+        if(perGame.score > CheckID.bestScore)
+        {
+            print(perGame.score);
+            print(CheckID.bestScore);
+            data.BestScore = perGame.score;
+        }
+        else
+        {
+            print(perGame.score);
+            print(CheckID.bestScore);
+            data.BestScore = CheckID.bestScore;
+        }
        // perGame.moveDis = data.moveDis;
-        GameData savedata = perGame;
-        fileName = string.Format("{5}_{0}{1}_{2}{3}{4}_GameData", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, CheckID.playerID);
-        Save(perGame, fileName);
+        //GameData savedata = perGame;
+        fileName = string.Format("{0}_GameData_Bicycle", CheckID.playerID);
+        Save(data, fileName);
         perGame.position.Clear();
     }
     //�p�G���}�̰�����
@@ -353,15 +370,23 @@ public class GameController : SaveSystem
         // {
         //     StartCoroutine(LoginError());
         // }
-        fileName = string.Format("{0}{1}_{2}{3}{4}_PosData", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+        fileName = string.Format("{0}{1}_{2}{3}{4}_PosData_Bicycle", DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
         Save(data, fileName);
         //Create.SetActive(false);
         Login.SetActive(false);
+        Ready = true;
+        TipUI.SetActive(true);
+    }
+    public void GameStart()
+    {
         uim.Initialized();
+        uim.StartCount = true;
         PlayerSensorCollider.enabled = true;
         InformationUI.SetActive(true);
         handsParameters.enabled = true;
         HaveData = true;
+        TipUI.SetActive(false);
+
     }
     public void GoToCreateCon()
     {

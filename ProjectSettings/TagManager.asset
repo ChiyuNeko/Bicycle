@@ -8,6 +8,7 @@ TagManager:
   - SamplesInfoPanel
   - GeneratedObject
   - Ground
+  - Animal
   layers:
   - Default
   - TransparentFX

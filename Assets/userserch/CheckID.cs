@@ -12,11 +12,11 @@ public class CheckID : SaveSystem
     //�T�{�O�_�����ɥH��Ū���̰�����
     public static bool checkID()
     {
-        string fileName = string.Format("{0}_GameData", playerID);
+        string fileName = string.Format("{0}_GameData_Bicycle", playerID);
         if (System.IO.File.Exists(Application.dataPath + "/StreamingAssets/GameData/" + fileName)) 
         {
             string readData = System.IO.File.ReadAllText(Application.dataPath + "/StreamingAssets/GameData/" + fileName);
-            //bestScore = JsonConvert.DeserializeObject<GameController.SaveData>(readData).score;
+            bestScore = JsonConvert.DeserializeObject<GameController.SaveData>(readData).BestScore;
             //bestDis = JsonConvert.DeserializeObject<GameController.SaveData>(readData).moveDis;
             return true;
         }

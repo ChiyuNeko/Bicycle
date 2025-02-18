@@ -14,6 +14,7 @@ public class ObjectGenerate : MonoBehaviour
     public List<GameObject> ObjectsPrefabs = new List<GameObject>();
     public List<GameObject> Animals = new List<GameObject>();
     public List<GameObject> AllObjects = new List<GameObject>();
+    public List <GameObject> AllAnimal = new List<GameObject>();
     public float TargetScore;
     public float ShrinkSpeed;
     public GameObject NextStep;
@@ -110,6 +111,7 @@ public class ObjectGenerate : MonoBehaviour
             if(i.transform.localScale.x >= 0.005)
             {
                 i.transform.localScale -= Vector3.one * ShrinkSpeed * Time.deltaTime;
+                i.transform.tag = "GeneratedObject";
                 UnShrinked++;
             }
             else
@@ -118,13 +120,21 @@ public class ObjectGenerate : MonoBehaviour
             }
 
         }
+
+        foreach(GameObject i in AllAnimal)
+        {
+            Destroy(i);
+            //AllAnimal.Remove(i);
+        }
+         
+
         if(UnShrinked == 0)
         {
             NextStep?.SetActive(true);
             this.gameObject.SetActive(false);
             TargetScore += 400;
-
         }
+
        
     }
 }

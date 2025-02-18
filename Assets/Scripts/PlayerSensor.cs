@@ -104,7 +104,9 @@ public class PlayerSensor : MonoBehaviour
         int a = Random.Range(0, objectGenerate.Animals.Count);
         animals = Instantiate(objectGenerate.Animals[a], Target.transform.position + new Vector3(3, 1, 0), Quaternion.Euler(new Vector3(0, 180, 0)));
         animals.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        animals.transform.tag = "Animal";
         animals.transform.LookAt(transform.position);
+        objectGenerate.AllAnimal.Add(animals);
     }
     public void AnimalGrowUp()
     {
