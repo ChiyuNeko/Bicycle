@@ -66,7 +66,6 @@ namespace UIM
 
         public int CountDown()
         {
-            Debug.Log(123);
             float a = (CountdownTime - Time.time + StartTime) /60;
             int b;
             float c;

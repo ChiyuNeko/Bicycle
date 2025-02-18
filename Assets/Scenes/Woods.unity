@@ -10683,9 +10683,10 @@ MonoBehaviour:
   PlayerSensorCollider: {fileID: 2086506304}
   perGame:
     ID: 
-    score: 0
-    moveDis: 0
     position: []
+    score: 
+    LeftControllerAcceleration: []
+    RightControllerAcceleration: []
   scoreUI: {fileID: 0}
   UID_InputField: {fileID: 2108255999}
   UID_Creat_InputField: {fileID: 2029280495}
@@ -10695,7 +10696,7 @@ MonoBehaviour:
   con3: {fileID: 0}
   con4: {fileID: 0}
   con5: {fileID: 0}
-  Login: {fileID: 625725011}
+  Login: {fileID: 912868077}
   Adjust: {fileID: 0}
   Create: {fileID: 1370240304}
   Level: {fileID: 0}
@@ -10709,11 +10710,12 @@ MonoBehaviour:
   distanceBreakUI: {fileID: 0}
   Net: {fileID: 0}
   music: {fileID: 1215284389}
-  HMD: {fileID: 0}
-  LCon: {fileID: 0}
-  RCon: {fileID: 0}
+  HMD: {fileID: 2086506300}
+  LCon: {fileID: 1870058587}
+  RCon: {fileID: 672787263}
   upCheckImage: {fileID: 0}
   downCheckImage: {fileID: 0}
+  HaveData: 0
 --- !u!114 &625725015
 MonoBehaviour:
   m_ObjectHideFlags: 0

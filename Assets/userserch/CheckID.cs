@@ -16,7 +16,7 @@ public class CheckID : SaveSystem
         if (System.IO.File.Exists(Application.dataPath + "/StreamingAssets/GameData/" + fileName)) 
         {
             string readData = System.IO.File.ReadAllText(Application.dataPath + "/StreamingAssets/GameData/" + fileName);
-            bestScore = JsonConvert.DeserializeObject<GameController.SaveData>(readData).score;
+            //bestScore = JsonConvert.DeserializeObject<GameController.SaveData>(readData).score;
             //bestDis = JsonConvert.DeserializeObject<GameController.SaveData>(readData).moveDis;
             return true;
         }

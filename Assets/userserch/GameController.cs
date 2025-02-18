@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UIM;
+using Oculus.Interaction.Input;
 
 public class GameController : SaveSystem
 {
@@ -64,7 +65,7 @@ public class GameController : SaveSystem
     string hitSide;
     Vector3 Left;
     string fileName;
-    bool HaveData;
+    public bool HaveData;
 
     //���b���l�W
 
@@ -72,7 +73,7 @@ public class GameController : SaveSystem
     {
         //��J�n�x�s���ܼ�
         //�O�o�x�s�e�n��s�o�̪��ƾ�
-        public float score;
+        public string score;
         //public float moveDis;
         public string LeftControllerVelocity;
         public string RightControllerVelocity;
@@ -84,9 +85,15 @@ public class GameController : SaveSystem
     public class GameData
     {
         public string ID;
-        public float score;
-        public float moveDis;
+        // public float score;
+        // public float moveDis;
         public List<string> position = new List<string>();
+        public string score;
+        //public float moveDis;
+        // public string LeftControllerVelocity;
+        // public string RightControllerVelocity;
+        public List<string> LeftControllerAcceleration = new List<string>();
+        public List<string> RightControllerAcceleration = new List<string>();
     }
     [System.Serializable]
     public class Q3Pos
@@ -129,17 +136,8 @@ public class GameController : SaveSystem
     // Update is called once per frame
     void Update()
     { 
-        if(HaveData)
-        {
-            data.score = float.Parse(uim.score.text);
-            data.LeftControllerVelocity += handsParameters.LeftControllerVelocity;
-            data.RightControllerVelocity += handsParameters.RightControllerVelocity;
-            data.LeftControllerAcceleration += handsParameters.LeftControllerAcceleration;
-            data.RightControllerAcceleration += handsParameters.RightControllerAcceleration;
-            Debug.Log(data.score);
-            Save(data, fileName);
 
-        }
+        
 
 
         
@@ -165,6 +163,20 @@ public class GameController : SaveSystem
         // downCheckImage.fillAmount = downCheck;
         // Debug.Log(GameController.amount);
         
+    }
+    void FixedUpdate()
+    {
+        if(HaveData)
+        {
+            perGame.score = uim.score.text;
+            perGame.position.Add("HMD:" + HMD.transform.position +"LCon:"+ LCon.transform.position+ "RCon:"+  RCon.transform.position);
+            perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration.ToString());
+            perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration.ToString());
+            Save(perGame, fileName);
+
+            
+            
+        }
     }
     void SetUI()
     {
@@ -213,7 +225,7 @@ public class GameController : SaveSystem
 
     void CatchButterfly(Collision collision)
     {
-        data.score++;
+        //data.score++;
         Destroy(collision.gameObject);
     }
 
@@ -542,7 +554,7 @@ public class GameController : SaveSystem
     public void playAgainCon()
     {
         music.GetComponent<AudioSource>().Play();
-        data.score = 0;
+        //data.score = 0;
         //data.moveDis = 0;
         scoreBreak = false;
         distanceBreak = false;
