@@ -70,6 +70,7 @@ public class GameController : SaveSystem
     float Timing = 0;
     float DeltaTime = 0.1f;
     bool Ready = false;
+    public bool GameEnd{get; set;}
 
     //���b���l�W
 
@@ -88,13 +89,16 @@ public class GameController : SaveSystem
         public string ID;
         // public float score;
         // public float moveDis;
-        public List<string> position = new List<string>();
+        //public List<string> position = new List<string>();
+        public List<Vector3> HMD_Pos = new List<Vector3>();
+        public List<Vector3> L_ConPos = new List<Vector3>();
+        public List<Vector3> R_ConPos = new List<Vector3>();
         public float score;
         //public float moveDis;
         // public string LeftControllerVelocity;
         // public string RightControllerVelocity;
-        public List<string> LeftControllerAcceleration = new List<string>();
-        public List<string> RightControllerAcceleration = new List<string>();
+        public List<Vector3> LeftControllerAcceleration = new List<Vector3>();
+        public List<Vector3> RightControllerAcceleration = new List<Vector3>();
         public List<string> GameTime = new List<string>();
     }
     [System.Serializable]
@@ -134,6 +138,7 @@ public class GameController : SaveSystem
         HaveData = false;
         music.GetComponent<AudioSource>().Play();
         UID_InputField.text = CheckID.playerID;
+        GameEnd= false;
        // Left = LCon.transform.position;
     }
     // Update is called once per frame
@@ -143,7 +148,7 @@ public class GameController : SaveSystem
         if(OVRInput.Get(OVRInput.Button.One) && OVRInput.Get(OVRInput.Button.Three) && Ready)
         {
             GameStart();
-
+            Ready = false;
         }
         
 
@@ -153,14 +158,18 @@ public class GameController : SaveSystem
             {
                 perGame.ID = CheckID.playerID;
                 perGame.score = float.Parse(uim.distance.ToString("F2"));
-                perGame.position.Add("HMD:" + HMD.transform.position +"LCon:"+ LCon.transform.position+ "RCon:"+  RCon.transform.position);
-                perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration.ToString());
-                perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration.ToString());
+                perGame.HMD_Pos.Add(HMD.transform.position);
+                perGame.L_ConPos.Add(LCon.transform.position);
+                perGame.R_ConPos.Add(RCon.transform.position);
+                perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration);
+                perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration);
                 perGame.GameTime.Add(Time.time.ToString());
-                Save(perGame, fileName);
                 Timing = Time.time;
             }
-
+        }
+        if(GameEnd)
+        {
+            Save(perGame, fileName);
         }
         
         // if (Adjusting)
@@ -285,9 +294,11 @@ public class GameController : SaveSystem
         }
        // perGame.moveDis = data.moveDis;
         //GameData savedata = perGame;
-        fileName = string.Format("{0}_GameData_Bicycle", CheckID.playerID);
-        Save(data, fileName);
-        perGame.position.Clear();
+        string GameDatafileName = string.Format("{0}_GameData_Bicycle", CheckID.playerID);
+        Save(data, GameDatafileName);
+        perGame.HMD_Pos.Clear();
+        perGame.L_ConPos.Clear();
+        perGame.R_ConPos.Clear();
     }
     //�p�G���}�̰�����
     // void BreakRecord()
