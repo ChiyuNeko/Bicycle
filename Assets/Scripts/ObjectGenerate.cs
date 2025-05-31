@@ -14,7 +14,7 @@ public class ObjectGenerate : MonoBehaviour
     public List<GameObject> ObjectsPrefabs = new List<GameObject>();
     public List<GameObject> Animals = new List<GameObject>();
     public List<GameObject> AllObjects = new List<GameObject>();
-    public List <GameObject> AllAnimal = new List<GameObject>();
+    public List<GameObject> AllAnimal = new List<GameObject>();
     public float TargetScore;
     public float ShrinkSpeed;
     public GameObject NextStep;
@@ -31,7 +31,7 @@ public class ObjectGenerate : MonoBehaviour
     void Start()
     {
         GenerateObjects();
-        if(playerSensor)
+        if (playerSensor)
             playerSensor.objectGenerate = this;
     }
 
@@ -39,23 +39,23 @@ public class ObjectGenerate : MonoBehaviour
     {
         GetVelocity();
 
-        if(uim.distance >= TargetScore)
+        if (uim.distance >= TargetScore)
         {
             Shrink();
-            
+
         }
         //GrowUp();
     }
 
     public void GenerateObjects()
     {
-        Vector3 GeneratePoint =  gameObject.transform.position;
+        Vector3 GeneratePoint = gameObject.transform.position;
         Vector3 RamdomPoint;
         for (int i = 0; i < GenerateZone.y; i++)
         {
-            for(int j = 0; j < GenerateZone.x; j++)
+            for (int j = 0; j < GenerateZone.x; j++)
             {
-                RamdomPoint = new Vector3( Random.Range(-RandomOffset, RandomOffset), 0, Random.Range(-RandomOffset, RandomOffset));
+                RamdomPoint = new Vector3(Random.Range(-RandomOffset, RandomOffset), 0, Random.Range(-RandomOffset, RandomOffset));
                 GameObject gameObject = Instantiate(ObjectsPrefabs[Random.Range(0, ObjectsPrefabs.Count)], GeneratePoint + RamdomPoint, Quaternion.identity, this.transform);
                 gameObject.transform.localScale = Vector3.one * Scale;
                 AllObjects.Add(gameObject);
@@ -64,7 +64,7 @@ public class ObjectGenerate : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
                 {
-                    if(hit.transform.tag == "Ground")
+                    if (hit.transform.tag == "Ground")
                         gameObject.transform.position = hit.point;
                 }
 
@@ -75,10 +75,10 @@ public class ObjectGenerate : MonoBehaviour
     }
     public void GrowUp(GameObject target)
     {
-        
-        if(target)
+
+        if (target)
         {
-            if(target.transform.localScale.x <= 1)
+            if (target.transform.localScale.x <= 1)
             {
                 target.transform.localScale += Vector3.one * GrowUpSpeedOffset * GrowUpSpeed / 10f;
             }
@@ -92,7 +92,7 @@ public class ObjectGenerate : MonoBehaviour
 
     public float GetVelocity()
     {
-        GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs((velocetyData_L.Velocety + velocetyData_R.Velocety)/2), 0.1f);
+        GrowUpSpeed = Mathf.Lerp(GrowUpSpeed, Mathf.Abs((velocetyData_L.Velocety + velocetyData_R.Velocety) / 2), 0.1f);
         if (LeftHand)
         {
             return velocetyData_L.Velocety;
@@ -106,9 +106,9 @@ public class ObjectGenerate : MonoBehaviour
     public void Shrink()
     {
         int UnShrinked = 0;
-        foreach(GameObject i in AllObjects)
+        foreach (GameObject i in AllObjects)
         {
-            if(i.transform.localScale.x >= 0.005)
+            if (i.transform.localScale.x >= 0.05)
             {
                 i.transform.localScale -= Vector3.one * ShrinkSpeed * Time.deltaTime;
                 i.transform.tag = "GeneratedObject";
@@ -121,20 +121,22 @@ public class ObjectGenerate : MonoBehaviour
 
         }
 
-        foreach(GameObject i in AllAnimal)
+        foreach (GameObject i in AllAnimal)
         {
             Destroy(i);
-            //AllAnimal.Remove(i);
+            AllAnimal.Remove(i);
         }
-         
 
-        if(UnShrinked == 0)
+
+        if (UnShrinked == 0)
         {
             NextStep?.SetActive(true);
             this.gameObject.SetActive(false);
-            TargetScore += 400;
+            NextStep.GetComponent<ObjectGenerate>().TargetScore = TargetScore + 15;
+            playerSensor.objectGenerate = NextStep.GetComponent<ObjectGenerate>();
         }
 
-       
+
     }
+
 }

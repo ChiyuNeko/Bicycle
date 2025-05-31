@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 95618121}
-  m_IndirectSpecularColor: {r: 0.5918952, g: 0.45517778, b: 0.3393482, a: 1}
+  m_IndirectSpecularColor: {r: 0.5977017, g: 0.45253223, b: 0.33880237, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9494,54 +9494,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 625725014}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: savePerGameData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 625725014}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: savePerGameData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 625725014}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: set_HaveData
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 625725014}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: set_GameEnd
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   distance: 0
 --- !u!4 &501026754
 Transform:
@@ -11503,6 +11455,11 @@ MonoBehaviour:
   RCon: {fileID: 672787263}
   upCheckImage: {fileID: 0}
   downCheckImage: {fileID: 0}
+  Season:
+  - {fileID: 835242182}
+  - {fileID: 2095137603}
+  - {fileID: 1222272788}
+  - {fileID: 1539498207}
 --- !u!114 &625725015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17415,9 +17372,9 @@ MonoBehaviour:
   - {fileID: 2030710505}
   AllObjects: []
   AllAnimal: []
-  TargetScore: 600
+  TargetScore: 15
   ShrinkSpeed: 1
-  NextStep: {fileID: 1360033865}
+  NextStep: {fileID: 2095137603}
   GenerateZone: {x: 18, y: 9}
   Distence: {x: 10, y: 10}
   Scale: 0.01
@@ -26576,7 +26533,7 @@ MonoBehaviour:
   - {fileID: 2030710505}
   AllObjects: []
   AllAnimal: []
-  TargetScore: 300
+  TargetScore: 15
   ShrinkSpeed: 1
   NextStep: {fileID: 1539498207}
   GenerateZone: {x: 18, y: 9}
@@ -32850,7 +32807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6418175451040406606, guid: ad0bf7c4316e03f4db0e464aebdfd9ed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6418175451174501566, guid: ad0bf7c4316e03f4db0e464aebdfd9ed, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -33007,7 +32964,7 @@ MonoBehaviour:
   - {fileID: 2030710505}
   AllObjects: []
   AllAnimal: []
-  TargetScore: 450
+  TargetScore: 15
   ShrinkSpeed: 1
   NextStep: {fileID: 835242182}
   GenerateZone: {x: 18, y: 9}
@@ -41442,7 +41399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520902350050246917, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8520902350247480099, guid: e281346999742f5428ed7baeebb46c98, type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
@@ -44799,7 +44756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2095137604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44832,7 +44789,7 @@ MonoBehaviour:
   - {fileID: 2030710505}
   AllObjects: []
   AllAnimal: []
-  TargetScore: 150
+  TargetScore: 15
   ShrinkSpeed: 1
   NextStep: {fileID: 1222272788}
   GenerateZone: {x: 18, y: 9}

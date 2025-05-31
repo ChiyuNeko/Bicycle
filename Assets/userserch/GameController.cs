@@ -71,6 +71,7 @@ public class GameController : SaveSystem
     float DeltaTime = 0.1f;
     bool Ready = false;
     public bool GameEnd{get; set;}
+    public GameObject[] Season;
 
     //���b���l�W
 
@@ -78,10 +79,10 @@ public class GameController : SaveSystem
     {
         //��J�n�x�s���ܼ�
         //�O�o�x�s�e�n��s�o�̪��ƾ�
-         public string ID;
+        public string ID;
         public float BestScore;
         //public float moveDis;
-       
+
     }
     [System.Serializable]
     public class GameData
@@ -147,26 +148,31 @@ public class GameController : SaveSystem
 
         if(OVRInput.Get(OVRInput.Button.One) && OVRInput.Get(OVRInput.Button.Three) && Ready)
         {
-            GameStart();
+            GameStart(0);
             Ready = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameStart(0);
+
         }
         
 
-        if(HaveData)
-        {
-            if(Time.time  - Timing > DeltaTime)
+        if (HaveData)
             {
-                perGame.ID = CheckID.playerID;
-                perGame.score = float.Parse(uim.distance.ToString("F2"));
-                perGame.HMD_Pos.Add(HMD.transform.position);
-                perGame.L_ConPos.Add(LCon.transform.position);
-                perGame.R_ConPos.Add(RCon.transform.position);
-                perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration);
-                perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration);
-                perGame.GameTime.Add(Time.time.ToString());
-                Timing = Time.time;
+                if (Time.time - Timing > DeltaTime)
+                {
+                    perGame.ID = CheckID.playerID;
+                    perGame.score = float.Parse(uim.distance.ToString("F2"));
+                    perGame.HMD_Pos.Add(HMD.transform.position);
+                    perGame.L_ConPos.Add(LCon.transform.position);
+                    perGame.R_ConPos.Add(RCon.transform.position);
+                    perGame.LeftControllerAcceleration.Add(handsParameters.LeftControllerAcceleration);
+                    perGame.RightControllerAcceleration.Add(handsParameters.RightControllerAcceleration);
+                    perGame.GameTime.Add(Time.time.ToString());
+                    Timing = Time.time;
+                }
             }
-        }
         if(GameEnd)
         {
             Save(perGame, fileName);
@@ -388,7 +394,7 @@ public class GameController : SaveSystem
         Ready = true;
         TipUI.SetActive(true);
     }
-    public void GameStart()
+    public void GameStart(int SartSeasonIndex)
     {
         uim.Initialized();
         uim.StartCount = true;
@@ -397,6 +403,8 @@ public class GameController : SaveSystem
         handsParameters.enabled = true;
         HaveData = true;
         TipUI.SetActive(false);
+
+        Season[SartSeasonIndex].SetActive(true);
 
     }
     public void GoToCreateCon()
