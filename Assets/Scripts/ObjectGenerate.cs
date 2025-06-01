@@ -28,6 +28,7 @@ public class ObjectGenerate : MonoBehaviour
     public bool LeftHand;
     int index = 0;
 
+
     void Start()
     {
         GenerateObjects();
@@ -64,10 +65,11 @@ public class ObjectGenerate : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.tag == "Ground")
+                    if (hit.transform.tag == "Ground" || hit.transform.tag == "Untagged" || hit.transform.tag == "Animal")
+                    { 
                         gameObject.transform.position = hit.point;
+                    }
                 }
-
             }
             GeneratePoint.z += Distence.y;
             GeneratePoint.x = gameObject.transform.position.x;
@@ -132,11 +134,12 @@ public class ObjectGenerate : MonoBehaviour
         {
             NextStep?.SetActive(true);
             this.gameObject.SetActive(false);
-            NextStep.GetComponent<ObjectGenerate>().TargetScore = TargetScore + 15;
+            NextStep.GetComponent<ObjectGenerate>().TargetScore = TargetScore + 150;
             playerSensor.objectGenerate = NextStep.GetComponent<ObjectGenerate>();
         }
 
 
     }
+    
 
 }
