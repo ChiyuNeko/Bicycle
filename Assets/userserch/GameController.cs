@@ -69,9 +69,10 @@ public class GameController : SaveSystem
     public bool HaveData{get; set;}
     float Timing = 0;
     float DeltaTime = 0.1f;
-    bool Ready = false;
+    public bool Ready{get; set;}
     public bool GameEnd{get; set;}
     public GameObject[] Season;
+    public int SeasonInput{get; set;}
 
     //���b���l�W
 
@@ -137,6 +138,7 @@ public class GameController : SaveSystem
     void Start()
     {
         HaveData = false;
+        Ready = false;
         music.GetComponent<AudioSource>().Play();
         UID_InputField.text = CheckID.playerID;
         GameEnd= false;
@@ -148,12 +150,12 @@ public class GameController : SaveSystem
 
         if(OVRInput.Get(OVRInput.Button.One) && OVRInput.Get(OVRInput.Button.Three) && Ready)
         {
-            GameStart(0);
+            GameStart(SeasonInput);
             Ready = false;
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameStart(0);
+            GameStart(SeasonInput);
 
         }
         
@@ -391,8 +393,8 @@ public class GameController : SaveSystem
         Save(data, fileName);
         //Create.SetActive(false);
         Login.SetActive(false);
-        Ready = true;
-        TipUI.SetActive(true);
+        //Ready = true;
+        //TipUI.SetActive(true);
     }
     public void GameStart(int SartSeasonIndex)
     {

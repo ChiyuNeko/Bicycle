@@ -65,10 +65,17 @@ public class ObjectGenerate : MonoBehaviour
                 RaycastHit hit;
                 if (Physics.Raycast(gameObject.transform.position, gameObject.transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity))
                 {
-                    if (hit.transform.tag == "Ground" || hit.transform.tag == "Untagged" || hit.transform.tag == "Animal")
-                    { 
+                    if (hit.transform.tag == "Ground" || hit.transform.tag == "Animal")
+                    {
                         gameObject.transform.position = hit.point;
                     }
+                    else if (hit.transform.tag == "Untagged")
+                    {
+                        AllObjects.Remove(gameObject);
+                        Destroy(gameObject);
+                    }
+                    Debug.Log(hit.transform.tag);
+                    
                 }
             }
             GeneratePoint.z += Distence.y;
