@@ -2227,7 +2227,7 @@ GameObject:
   - component: {fileID: 113907143}
   m_Layer: 0
   m_Name: LeftEyeAnchor
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2818,82 +2818,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.035085693, y: 0.0008475032, z: -0.0017565807}
     m_Extent: {x: 0.0010651201, y: 0.0018774158, z: 0.0045612464}
   m_DirtyAABB: 0
---- !u!1 &149115952
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 149115954}
-  - component: {fileID: 149115953}
-  m_Layer: 0
-  m_Name: Object Generater Spring (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &149115953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149115952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSensor: {fileID: 514888606}
-  uim: {fileID: 794749046}
-  velocetyData_L: {fileID: 1657221424}
-  velocetyData_R: {fileID: 612630872}
-  handsParameters: {fileID: 2075330117}
-  ObjectsPrefabs:
-  - {fileID: 117866680507355168, guid: 1d346702b2107531e939003fb256261b, type: 3}
-  - {fileID: 3898220539956852897, guid: 488c1b23b5470bb4986ad7d362420766, type: 3}
-  - {fileID: 569803505543558402, guid: 67d3abe897c93a08e9593b0a183f2bb4, type: 3}
-  - {fileID: 2683874816178851636, guid: 261441bc3708ec7aa8a2c288c3fab3ef, type: 3}
-  - {fileID: 3800764132345832870, guid: f6208658c4d45bf5c944dd7806489932, type: 3}
-  - {fileID: 4936680397356055064, guid: 9d642dd3a2ff904da90e9417ae5cddec, type: 3}
-  Animals:
-  - {fileID: 904092814}
-  - {fileID: 1525542072}
-  - {fileID: 694926718}
-  - {fileID: 1719725565}
-  - {fileID: 1249157806}
-  - {fileID: 201261399}
-  - {fileID: 1722101802}
-  AllObjects: []
-  AllAnimal: []
-  TargetScore: 1200
-  ShrinkSpeed: 1
-  NextStep: {fileID: 363352136}
-  GenerateZone: {x: 18, y: 9}
-  Distence: {x: 10, y: 10}
-  Scale: 0.01
-  RandomOffset: 5
-  GrowUpSpeedOffset: 0.01
-  GrowUpSpeed: 1
-  LeftHand: 0
---- !u!4 &149115954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149115952}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -792.5, y: 37.3, z: -21.699995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &152099261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &167683942
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -3681,7 +3605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &215002511
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -4930,7 +4854,7 @@ GameObject:
   - component: {fileID: 330585547}
   m_Layer: 0
   m_Name: Display 1
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4942,7 +4866,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -5875,80 +5799,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &363352136
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 363352138}
-  - component: {fileID: 363352137}
-  m_Layer: 0
-  m_Name: Object Generater Summer (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &363352137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363352136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSensor: {fileID: 514888606}
-  uim: {fileID: 794749046}
-  velocetyData_L: {fileID: 1657221424}
-  velocetyData_R: {fileID: 612630872}
-  handsParameters: {fileID: 2075330117}
-  ObjectsPrefabs:
-  - {fileID: 136824, guid: 393b236c42954a640b513d46de90ac38, type: 3}
-  - {fileID: 123896, guid: c63ea781a273235439e583799176c846, type: 3}
-  - {fileID: 191138, guid: 4e2dd32c733005a44b50004d673dc653, type: 3}
-  - {fileID: 109402, guid: aae542b8a65f39b49b008fa689ce9804, type: 3}
-  Animals:
-  - {fileID: 904092814}
-  - {fileID: 1525542072}
-  - {fileID: 694926718}
-  - {fileID: 1719725565}
-  - {fileID: 1249157806}
-  - {fileID: 201261399}
-  - {fileID: 1722101802}
-  AllObjects: []
-  AllAnimal: []
-  TargetScore: 750
-  ShrinkSpeed: 1
-  NextStep: {fileID: 949294509}
-  GenerateZone: {x: 18, y: 9}
-  Distence: {x: 10, y: 10}
-  Scale: 0.01
-  RandomOffset: 5
-  GrowUpSpeedOffset: 0.01
-  GrowUpSpeed: 1
-  LeftHand: 0
---- !u!4 &363352138
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363352136}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -792.5, y: 37.3, z: -21.699995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &366504553
 GameObject:
   m_ObjectHideFlags: 0
@@ -6042,7 +5892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &377015324
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -11573,7 +11423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12531,80 +12381,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &949294509
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 949294511}
-  - component: {fileID: 949294510}
-  m_Layer: 0
-  m_Name: Object Generater Fall (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &949294510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949294509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSensor: {fileID: 514888606}
-  uim: {fileID: 794749046}
-  velocetyData_L: {fileID: 1657221424}
-  velocetyData_R: {fileID: 612630872}
-  handsParameters: {fileID: 2075330117}
-  ObjectsPrefabs:
-  - {fileID: 6252442513108361000, guid: 6e92187b7f5500614b9ca0ab3b1812a0, type: 3}
-  - {fileID: 7466445072313495837, guid: 9aaafd7584909db6aae1b9e564dc5ef3, type: 3}
-  - {fileID: 3244553707286072786, guid: eba8e66cbe98e874f97ecf77638129b2, type: 3}
-  - {fileID: 2188426718917118872, guid: 5c8f8dde9e3fb58dda8f56008939d4fd, type: 3}
-  Animals:
-  - {fileID: 904092814}
-  - {fileID: 1525542072}
-  - {fileID: 694926718}
-  - {fileID: 1719725565}
-  - {fileID: 1249157806}
-  - {fileID: 201261399}
-  - {fileID: 1722101802}
-  AllObjects: []
-  AllAnimal: []
-  TargetScore: 900
-  ShrinkSpeed: 1
-  NextStep: {fileID: 1421777757}
-  GenerateZone: {x: 18, y: 9}
-  Distence: {x: 10, y: 10}
-  Scale: 0.01
-  RandomOffset: 5
-  GrowUpSpeedOffset: 0.01
-  GrowUpSpeed: 1
-  LeftHand: 0
---- !u!4 &949294511
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949294509}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -792.5, y: 37.3, z: -21.699995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &949663650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13214,7 +12990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &973324653
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -15314,7 +15090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1144122423
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -15535,7 +15311,7 @@ GameObject:
   - component: {fileID: 1168479298}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18190,7 +17966,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1310281940
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -18348,7 +18124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1316409167
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -19782,80 +19558,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2519953544252300547, guid: 44cf50d1a2e68b64791a3e3143ccda19, type: 3}
   m_PrefabInstance: {fileID: 1416472768}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1421777757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1421777759}
-  - component: {fileID: 1421777758}
-  m_Layer: 0
-  m_Name: Object Generater winter (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1421777758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421777757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291f8a4304b08fb4a8ce61fc0795b3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSensor: {fileID: 514888606}
-  uim: {fileID: 794749046}
-  velocetyData_L: {fileID: 1657221424}
-  velocetyData_R: {fileID: 612630872}
-  handsParameters: {fileID: 2075330117}
-  ObjectsPrefabs:
-  - {fileID: 1237154152}
-  - {fileID: 128692540}
-  - {fileID: 639238202}
-  - {fileID: 1965150545}
-  Animals:
-  - {fileID: 904092814}
-  - {fileID: 1525542072}
-  - {fileID: 694926718}
-  - {fileID: 1719725565}
-  - {fileID: 1249157806}
-  - {fileID: 201261399}
-  - {fileID: 1722101802}
-  AllObjects: []
-  AllAnimal: []
-  TargetScore: 1050
-  ShrinkSpeed: 1
-  NextStep: {fileID: 149115952}
-  GenerateZone: {x: 18, y: 9}
-  Distence: {x: 10, y: 10}
-  Scale: 0.01
-  RandomOffset: 5
-  GrowUpSpeedOffset: 0.01
-  GrowUpSpeed: 1
-  LeftHand: 0
---- !u!4 &1421777759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421777757}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -792.5, y: 37.3, z: -21.699995}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431161366
 GameObject:
   m_ObjectHideFlags: 0
@@ -20527,6 +20229,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 99ea9934086afab4f8402ddc287eb632, type: 3}
       propertyPath: m_Name
       value: Fake_sky
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 99ea9934086afab4f8402ddc287eb632, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23028,7 +22734,7 @@ GameObject:
   - component: {fileID: 1692527650}
   m_Layer: 0
   m_Name: Display 4
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23092,7 +22798,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1692527649}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -24238,7 +23944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1744618942
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -26216,7 +25922,7 @@ Transform:
   m_GameObject: {fileID: 1862782561}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -792.5, y: 0, z: -98.6}
+  m_LocalPosition: {x: -89.4, y: 105.2, z: -66.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27036,6 +26742,10 @@ PrefabInstance:
     - target: {fileID: 2465826902470442683, guid: 198ae66c17e6ef9499d096140027f604, type: 3}
       propertyPath: m_Name
       value: Conifer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2465826902470442683, guid: 198ae66c17e6ef9499d096140027f604, type: 3}
+      propertyPath: m_TagString
+      value: GeneratedObject
       objectReference: {fileID: 0}
     - target: {fileID: 2986924682209027073, guid: 198ae66c17e6ef9499d096140027f604, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28596,8 +28306,8 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 214
-  m_DetailObjectDensity: 1
+  m_DetailObjectDistance: 218
+  m_DetailObjectDensity: 0.512
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
@@ -29922,10 +29632,6 @@ SceneRoots:
   - {fileID: 1869758369}
   - {fileID: 940507848}
   - {fileID: 682054148}
-  - {fileID: 149115954}
-  - {fileID: 363352138}
-  - {fileID: 949294511}
-  - {fileID: 1421777759}
   - {fileID: 739653663}
   - {fileID: 113605287}
   - {fileID: 459207478}

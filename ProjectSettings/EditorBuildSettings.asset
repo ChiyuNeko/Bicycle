@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Woods.unity
-    guid: df171a73bdc7aff49a8b5bb388051865
+    path: Assets/Scenes/3_Game_Scenes.unity
+    guid: 637a410d707cd8541b11cd017107f156
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f6f5734b3f9fb2d4b92b19a2587d7d82, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8a804577a74cf75488648acacfab7044, type: 2}
