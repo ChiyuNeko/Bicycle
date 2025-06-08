@@ -5,6 +5,7 @@ using UnityEngine;
 public class UIMove : MonoBehaviour
 {
     public GameObject headObject;
+    public float HeightOffset = 0;
     public float minHeight = 1.2f;
     public float distance = 1f;
 
@@ -23,10 +24,11 @@ public class UIMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(headObject != null)
+        if (headObject != null)
         {
             usedPos = Vector3.ClampMagnitude(headObject.transform.forward * 1000, distance) + headObject.transform.position;
             usedRot = headObject.transform.rotation;
+            usedPos = usedPos + new Vector3(0, HeightOffset, 0);
 
         }
         else
